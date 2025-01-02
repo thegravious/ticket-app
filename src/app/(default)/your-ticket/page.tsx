@@ -4,7 +4,7 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Ticket = () => {
-  const [bookings, setBookings] = React.useState([]);
+  const [bookings, setBookings] = React.useState<any[]|"">([]);
 
   const fetchBookings = async () => {
     try {
@@ -25,10 +25,7 @@ const Ticket = () => {
     }
   };
 
-  const [deleteid] = React.useState("");
-  console.log(deleteid);
-
-  const deleteBooking = async (deleteid) => {
+  const deleteBooking = async (deleteid: string) => {
     try {
       const response = await fetch(
         `http://localhost:8000/api/booking/bookingorder/${deleteid}`,
@@ -41,7 +38,7 @@ const Ticket = () => {
         fetchBookings();
       } else {
         console.error("Failed to delete booking:", response.statusText);
-        toast.waring('something went wrong');
+        toast.warning('Something went wrong');
       }
     } catch (error) {
       console.error("Error deleting booking:", error);
@@ -99,8 +96,7 @@ const Ticket = () => {
               <div className="footer mt-auto flex justify-between items-center">
                 <button
                   onClick={() => {
-                    // setDeleteID(data._id);  // Set the delete ID
-                    deleteBooking(data._id); // Call deleteBooking after setting the ID
+                    deleteBooking(data._id); // Directly call deleteBooking with data._id
                   }}
                   className="cancel-link text-white bg-red-500 py-1 px-3 rounded-lg"
                 >
