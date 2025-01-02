@@ -23,7 +23,7 @@ const ReservationForm = ({ seatnumber }) => {
     let data = { name, guest, date, time, contact, seatPreference };
     try {
       setLoading(true); // Start loading
-      const response = await fetch("http://localhost:8000/api/booking/bookingorder", {
+      const response = await fetch("https://backend-server-13ui.onrender.com/api/booking/bookingorder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const ReservationForm = ({ seatnumber }) => {
       });
 
       if (!response.ok) {
-        setError('There was an error submitting your reservation. Please try again.');
+        // setError('There was an error submitting your reservation. Please try again.');
         toast.warning('Reservation Failed');
       } else {
         setFormData({

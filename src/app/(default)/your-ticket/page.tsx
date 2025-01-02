@@ -21,7 +21,7 @@ const Ticket = () => {
   const fetchBookings = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/api/booking/bookingorder",
+        "https://backend-server-13ui.onrender.com/api/booking/bookingorder",
         {
           method: "GET",
         }
@@ -40,7 +40,7 @@ const Ticket = () => {
   const deleteBooking = async (deleteid: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/booking/bookingorder/${deleteid}`,
+        `https://backend-server-13ui.onrender.com/api/booking/bookingorder/${deleteid}`,
         {
           method: "DELETE",
         }
