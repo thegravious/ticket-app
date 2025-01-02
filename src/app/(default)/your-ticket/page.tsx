@@ -3,8 +3,20 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
+// Define the Booking type
+type Booking = {
+  _id: string;
+  name: string;
+  contact: string;
+  guest: number;
+  seatPreference: string;
+  date: string;
+  time: string;
+};
+
 const Ticket = () => {
-  const [bookings, setBookings] = React.useState<any[]|"">([]);
+  // Typing the bookings state as an array of Booking objects
+  const [bookings, setBookings] = React.useState<Booking[]>([]);
 
   const fetchBookings = async () => {
     try {

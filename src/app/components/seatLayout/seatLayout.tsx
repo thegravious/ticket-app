@@ -5,25 +5,28 @@ import Sidebar from "../sidebar/sidebar";
 const SeatLayout = () => {
   const seat = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"];
   const [openSide, setOpenSide] = React.useState(""); // Track the selected seat
+
   const [sidebar, setSidebar] = React.useState(false); // Track if the sidebar is visible
-
-  const openSideref = React.useRef(null);
+  const openSideref = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    document.addEventListener("mousedown", (event) => {
-      if (!openSideref?.current?.contains(event?.target)) {
-        setSidebar(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openSideref.current && !openSideref.current.contains(event.target as Node)) {
+        setSidebar(false); // Close sidebar if clicked outside
       }
-    });
-  });
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup the event listener when the component unmounts or re-renders
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []); // Empty dependency array to ensure this effect runs only once
 
   useEffect(() => {
-    if (openSide) {
-      setSidebar(true);
-    } else {
-      setSidebar(false);
-    }
-  }, [openSide]);
+    setSidebar(!!openSide); // Show sidebar if a seat is selected, hide otherwise
+  }, [openSide]); // Trigger when `openSide` changes
 
   return (
     <div className="">
@@ -31,7 +34,7 @@ const SeatLayout = () => {
         <h2 className="text-2xl text-center font-semibold text-gray-700 capitalize dark:text-white">
           Book Your Seat
         </h2>
-        <div className="grid grid-cols-3 gap-6  mt-6">
+        <div className="grid grid-cols-3 gap-6 mt-6">
           {seat.map((data, index) => (
             <div key={index} className="flex flex-col items-center">
               {/* Checkbox */}
@@ -46,7 +49,7 @@ const SeatLayout = () => {
                 }}
                 type="checkbox"
                 id={data}
-                className="w-20 h-20 appearance-none bg-gray-200 rounded-md  checked:bg-red-900"
+                className="w-20 h-20 appearance-none bg-gray-200 rounded-md checked:bg-red-900"
               />
               {/* Label for each seat */}
               <label
