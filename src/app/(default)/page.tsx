@@ -1,4 +1,3 @@
-import BookingForm from "./layout"
 import SeatLayout from "../components/seatLayout/seatLayout"
 
 

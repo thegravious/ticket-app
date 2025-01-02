@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -25,7 +25,7 @@ const Ticket = () => {
     }
   };
 
-  const [deleteid, setDeleteID] = React.useState("");
+  const [deleteid] = React.useState("");
   console.log(deleteid);
 
   const deleteBooking = async (deleteid) => {
