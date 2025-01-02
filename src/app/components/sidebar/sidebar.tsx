@@ -96,7 +96,7 @@ const Sidebar = ({ seatno }: { seatno: string }) => {
         <Inputfield labelvalue={"Seat Preference"} inputvalue={data} />
         <Inputfield
           labelvalue={"Date"}
-          inputType="date"
+          inputType="Date"
           inputvalue={bookingDetails.date}
           changeValue={(e: ChangeEvent<HTMLInputElement>) => {
             setBookingDetails({ ...bookingDetails, date: e.target.value });

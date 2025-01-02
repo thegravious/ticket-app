@@ -37,11 +37,10 @@ const SeatInner = () => {
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
             </svg>
           </div>
-          <div className="brutalist-card__alert">Warning</div>
+          <div className="brutalist-card__alert">Ticket Booking App</div>
         </div>
         <div className="brutalist-card__message">
-          This is a brutalist card with a very angry button. Proceed with
-          caution, youve been warned.
+          Here you can book seats from A1 - C3
         </div>
 
         <div className="grid grid-cols-3 gap-4">
