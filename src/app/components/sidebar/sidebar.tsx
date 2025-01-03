@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import React, { ChangeEvent, FormEvent } from "react";
 // import Dateandtime from "../timeanddate/timeanddate"
 import Inputfield from "../inputfield/inputfield";
+// import CloseButton from "../closeButton/closeButton"
 import SubmitButton from "../submitbutton/submitbutton";
 
 const Sidebar = ({ seatno }: { seatno: string }) => {
@@ -15,6 +16,8 @@ const Sidebar = ({ seatno }: { seatno: string }) => {
     date: "",
     time: "",
   });
+
+
 
   const handleSubmit = async (e: FormEvent) => {
     const { name, contact, seatPreference, guest, date, time } = bookingDetails;
@@ -64,10 +67,25 @@ const Sidebar = ({ seatno }: { seatno: string }) => {
         pauseOnHover
         theme="colored"
       />
+      {/* <CloseButton/> */}
       <form
         onSubmit={handleSubmit}
         className="h-screen lg:grid lg:grid-cols-2 bg-gray-300 lg:w-[50vw] w-full fixed top-0 left-0 min-w-[260px] pt-10 lg:p-20 font-[sans-serif] overflow-auto"
       >
+        <div className="absolute">
+          <button
+            className="relative md:z-40 lg:left-[640px] bottom-[25px] left-[240px] lg:top-[20px] z-30 border-2 border-black group hover:border-black w-12 h-12 duration-500 overflow-hidden"
+            type="button"
+          >
+            <p className="font-Manrope text-3xl h-full w-full flex items-center justify-center text-black duration-500 relative z-10 group-hover:scale-0">
+              ×
+            </p>
+            <span className="absolute w-full h-full bg-black rotate-45 group-hover:top-9 duration-500 top-12 left-0"></span>
+            <span className="absolute w-full h-full bg-black rotate-45 top-0 group-hover:left-9 duration-500 left-12"></span>
+            <span className="absolute w-full h-full bg-black rotate-45 top-0 group-hover:right-9 duration-500 right-12"></span>
+            <span className="absolute w-full h-full bg-black rotate-45 group-hover:bottom-9 duration-500 bottom-12 right-0"></span>
+          </button>
+        </div>
         {/* <Dateandtime seatnumber={data}/> */}
         <Inputfield
           labelvalue={"Enter Name"}
@@ -111,12 +129,7 @@ const Sidebar = ({ seatno }: { seatno: string }) => {
           }}
         />
         <div className="ml-10">
-          <SubmitButton
-            ButtonText="Submit"
-            Func={() => {
-              console.log(bookingDetails);
-            }}
-          />
+          <SubmitButton ButtonText="Submit" />
         </div>
       </form>
     </>

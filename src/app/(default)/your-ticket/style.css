@@ -107,14 +107,14 @@
 .brutalist-card__button--mark:hover {
   background-color: #296fbb;
   border-color: #296fbb;
-  color: #000;
+  color: white;
   box-shadow: 7px 7px 0 #004280;
 }
 
 .brutalist-card__button--read:hover {
   background-color: #ff0000;
   border-color: #ff0000;
-  color: #000;
+  color: white;
   box-shadow: 7px 7px 0 #800000;
 }
 
@@ -195,14 +195,14 @@
   .brutalist-card__button--mark:hover {
     background-color: #296fbb;
     border-color: #296fbb;
-    color: #000;
+    color: white;
     box-shadow: 5px 5px 0 #004280;
   }
 
   .brutalist-card__button--read:hover {
     background-color: #ff0000;
     border-color: #ff0000;
-    color: #000;
+    color: white;
     box-shadow: 5px 5px 0 #800000;
   }
 
