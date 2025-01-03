@@ -31,7 +31,7 @@ const Sidebar:React.FC<Sidebartypes> = ({ seatno, closeSidebar }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8000/api/booking//bookingorder",
+        "https://backend-server-13ui.onrender.com/api/booking//bookingorder",
         {
           method: "POST",
           headers: {
