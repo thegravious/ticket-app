@@ -6,7 +6,13 @@ import Inputfield from "../inputfield/inputfield";
 // import CloseButton from "../closeButton/closeButton"
 import SubmitButton from "../submitbutton/submitbutton";
 
-const Sidebar = ({ seatno }: { seatno: string }) => {
+
+interface Sidebartypes{
+  seatno:string,
+  closeSidebar?():void 
+}
+
+const Sidebar:React.FC<Sidebartypes> = ({ seatno, closeSidebar }) => {
   const data = seatno;
   const [bookingDetails, setBookingDetails] = React.useState({
     name: "",
@@ -75,7 +81,7 @@ const Sidebar = ({ seatno }: { seatno: string }) => {
         <div className="absolute">
           <button
             className="relative md:z-40 lg:left-[640px] bottom-[25px] left-[240px] lg:top-[20px] z-30 border-2 border-black group hover:border-black w-12 h-12 duration-500 overflow-hidden"
-            type="button"
+            type="button" onClick={closeSidebar}
           >
             <p className="font-Manrope text-3xl h-full w-full flex items-center justify-center text-black duration-500 relative z-10 group-hover:scale-0">
               ×

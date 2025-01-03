@@ -61,7 +61,9 @@ const SeatInner = () => {
         {/* Sidebar Component */}
         {isSidebarOpen && (
           <div ref={openSideref}>
-            <Sidebar seatno={selectedSeat} />
+            <Sidebar seatno={selectedSeat} closeSidebar={()=>{
+              setSidebarOpen(false)
+            }} />
           </div>
         )}
       </div>
