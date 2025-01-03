@@ -80,7 +80,7 @@ const Sidebar:React.FC<Sidebartypes> = ({ seatno, closeSidebar }) => {
       >
         <div className="absolute">
           <button
-            className="relative md:z-40 lg:left-[640px] bottom-[25px] left-[350px] lg:top-[20px] z-30 border-2 border-black group hover:border-black w-12 h-12 duration-500 overflow-hidden"
+            className="relative md:z-40 lg:left-[640px] bottom-[25px] left-[300px] lg:top-[20px] z-30 border-2 border-black group hover:border-black w-12 h-12 duration-500 overflow-hidden"
             type="button" onClick={closeSidebar}
           >
             <p className="font-Manrope text-3xl h-full w-full flex items-center justify-center text-black duration-500 relative z-10 group-hover:scale-0">
